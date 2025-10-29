@@ -61,7 +61,7 @@ function FormTema() {
         await atualizar(`/temas`, tema, setTema, {
           headers: { Authorization: token },
         });
-        alert("O Tema foi atualizado com sucesso!");
+        alert("O tema foi atualizado com sucesso!");
       } catch (error: any) {
         if (error.toString().includes("401")) {
           handleLogout();
@@ -74,12 +74,12 @@ function FormTema() {
         await cadastrar(`/temas`, tema, setTema, {
           headers: { Authorization: token },
         });
-        alert("O Tema foi cadastrado com sucesso!");
+        alert("O tema foi cadastrado com sucesso!");
       } catch (error: any) {
         if (error.toString().includes("401")) {
           handleLogout();
         } else {
-          alert("Erro ao cadastrar o tema.");
+          alert("Erro ao cadastrar o tema");
         }
       }
     }
@@ -94,7 +94,7 @@ function FormTema() {
 
       <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoTema}>
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricao">Descrição do Tema</label>
+          <label htmlFor="descricao">Descrição do tema</label>
           <input
             type="text"
             placeholder="Descreva aqui seu tema"

@@ -1,4 +1,4 @@
-import { type ChangeEvent, useEffect, useState, type FormEvent } from "react"
+import { useEffect, useState, type ChangeEvent, type FormEvent } from "react"
 import { useNavigate } from "react-router-dom"
 import { ClipLoader } from "react-spinners"
 import type Usuario from "../../models/Usuario"
@@ -52,10 +52,10 @@ function Cadastro() {
       try{
         await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario)
         alert('Usuário cadastrado com sucesso!')
-      }catch(error){
+      } catch(error){
         alert('Erro ao cadastrar o usuário!')
       }
-    }else{
+    } else{
       alert('Dados do usuário inconsistentes! Verifique as informações do cadastro.')
       setUsuario({...usuario, senha: ''})
       setConfirmarSenha('')
@@ -82,19 +82,19 @@ function Cadastro() {
               type="text"
               id="nome"
               name="nome"
-              placeholder="Nome"
+              placeholder="Nome completo"
               className="border-2 border-slate-700 rounded p-2"
               value = {usuario.nome}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="usuario">Usuario</label>
+            <label htmlFor="usuario">Usuário</label>
             <input
               type="text"
               id="usuario"
               name="usuario"
-              placeholder="Usuario"
+              placeholder="exemplo@email.com"
               className="border-2 border-slate-700 rounded p-2"
               value = {usuario.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -106,7 +106,7 @@ function Cadastro() {
               type="text"
               id="foto"
               name="foto"
-              placeholder="Foto"
+              placeholder="URL da foto"
               className="border-2 border-slate-700 rounded p-2"
               value = {usuario.foto}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -118,19 +118,19 @@ function Cadastro() {
               type="password"
               id="senha"
               name="senha"
-              placeholder="Senha"
+              placeholder="No mínimo 8 caracteres"
               className="border-2 border-slate-700 rounded p-2"
               value = {usuario.senha}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="confirmarSenha">Confirmar Senha</label>
+            <label htmlFor="confirmarSenha">Confirmar senha</label>
             <input
               type="password"
               id="confirmarSenha"
               name="confirmarSenha"
-              placeholder="Confirmar Senha"
+              placeholder="Confirmar senha"
               className="border-2 border-slate-700 rounded p-2"
               value={confirmarSenha}
               onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}

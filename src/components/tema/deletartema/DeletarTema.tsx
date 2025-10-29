@@ -53,7 +53,7 @@ function DeletarTema() {
         },
       });
 
-      alert("Tema apagado com sucesso");
+      alert("Tema apagado com sucesso!");
     } catch (error: any) {
       if (error.toString().includes("401")) {
         handleLogout();

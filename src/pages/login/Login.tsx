@@ -1,4 +1,4 @@
-import { type ChangeEvent, useContext, useEffect, useState, type FormEvent } from "react";
+import { useContext, useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -47,7 +47,7 @@ function Login() {
                             name="usuario"
                             placeholder="Usuario"
                             className="border-2 border-slate-700 rounded p-2"
-                            value = {usuarioLogin.usuario}
+                            value={usuarioLogin.usuario}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
                     </div>
