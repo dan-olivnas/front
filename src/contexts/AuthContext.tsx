@@ -2,6 +2,7 @@
 import { createContext, useState, type ReactNode } from 'react';
 import type UsuarioLogin from '../models/UsuarioLogin';
 import { login } from '../services/Service';
+import { ToastAlerta } from '../utils/ToastAlerta';
 
 // tipagem das funcionalidades que eu vou querer no meu contexto, essa é a ultima parte a ser preenchida, de acordo com o que eu precisar no projeto
 interface AuthContextProps {
@@ -41,10 +42,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     try {
       await login('/usuarios/logar', usuarioLogin, setUsuario);
-      alert('Sucesso no login!');
+      ToastAlerta("Usuário foi autenticado com sucesso!", "sucesso")
     } catch (error) {
-      alert('Erro no login, verifique os dados');
-      console.log(error);
+      ToastAlerta("Os dados do Usuário estão inconsistentes!", "erro")
     }
 
     setIsLoading(false);
